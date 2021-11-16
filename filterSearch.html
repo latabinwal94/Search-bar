@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		td,
+		th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 14px;
+		}
+
+		th {
+			background-color: #dddddd;
+		}
+
+		input {
+			width: 100%;
+			padding: 10px;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<input type="text" id='search' placeholder="Search by name..." onkeyup="search()" />
+	<table id='table'>
+		<tr>
+			<th>name</th>
+			<th>degree</th>
+			<th>Profession</th>
+		</tr>
+		<tr>
+			<td>Rita</td>
+			<td>BSC</td>
+			<td>Teacher</td>
+		</tr>
+		<tr>
+			<td>Sikha</td>
+			<td>BA</td>
+			<td>Housewife</td>
+		</tr>
+		<tr>
+			<td>Harish</td>
+			<td>Hotel Management</td>
+			<td>Chef</td>
+		</tr>
+		<tr>
+			<td>Rohit</td>
+			<td>M.tech</td>
+			<td>Data Engineer</td>
+		</tr>
+		<tr>
+			<td>Divya</td>
+			<td>Nurshing</td>
+			<td>Nurse</td>
+		</tr>
+		<tr>
+			<td>Aditya</td>
+			<td>MBBS</td>
+			<td>Doctor</td>
+		</tr>
+		<tr>
+			<td>Ankur</td>
+			<td>NDA</td>
+			<td>Officer</td>
+		</tr>
+		<tr>
+			<td>Aniket</td>
+			<td>MCA</td>
+			<td>Full stack developer</td>
+		</tr>
+	</table>
+</body>
+<script>
+	const search = () => {
+		const filter = document.getElementById('search').value.toUpperCase()
+		const table = document.getElementById('table')
+		const tr = table.getElementsByTagName('tr')
+		for (let i = 0; i < tr.length; i++) {
+			let td = tr[i].getElementsByTagName('td')[0]
+			if (td) {
+				const text = td.textContent || td.innerHTML.toUpperCase()
+				if (text.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = ""
+				} else {
+					tr[i].style.display = "none"
+				}
+			}
+		}
+	}
+</script>
+
+</html>
